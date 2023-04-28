@@ -17,9 +17,20 @@
     "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": [ "src/*" ],
+      "@components/*": ["src/assets/components/*"],
+      "@contexts/*": ["src/assets/contexts/*"],
+      "@pages/*": ["src/assets/pages/*"],
+      "@redux/*": ["src/assets/redux/*"],
+      "@styles/*": ["src/assets/styles/*"],
+      "@providers/*": ["src/assets/providers/*"],
+      "@ui/*": ["src/assets/components/ui/*"],
+      "@hooks/*": ["src/assets/hooks/*"],
+      "@types/*": ["src/assets/types/*"],
+      "@utils/*": ["src/assets/utils/*"],
+      "@media/*": ["src/media/*"],
+      "@services/*": ["src/services/*"],
+      "@errors/*": ["src/assets/errors/*"]
     },
   },
   "include": ["src", "electron"],
