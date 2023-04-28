@@ -5,6 +5,8 @@ import { Provider as ReduxProvider } from 'react-redux';
 
 import { store } from '@redux/index';
 
+import GlobalProvider from '@providers/GlobalProvider/GlobalProvider';
+
 import App from './App';
 import './samples/node-api';
 
@@ -20,7 +22,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		<QueryClientProvider client={queryClient}>
 			<ReduxProvider store={store}>
-				<App />
+				<GlobalProvider>
+					<App />
+				</GlobalProvider>
 			</ReduxProvider>
 		</QueryClientProvider>
 	</React.StrictMode>
