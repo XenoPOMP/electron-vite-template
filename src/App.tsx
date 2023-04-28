@@ -1,10 +1,4 @@
-import { useState } from 'react';
-
 import Layout from '@components/Layout/Layout';
-import Update from '@components/update';
-
-import logoElectron from '@media/logo-electron.svg';
-import logoVite from '@media/logo-vite.svg';
 
 import './App.scss';
 
@@ -16,7 +10,7 @@ console.log(
 function App() {
 	return (
 		<>
-			<Layout>123</Layout>
+			<Layout></Layout>
 		</>
 	);
 }
