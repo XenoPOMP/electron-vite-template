@@ -1,4 +1,7 @@
-import Layout from '@components/Layout/Layout';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+
+import MainPage from '@pages/MainPage/MainPage';
+import SettingsPage from '@pages/SettingsPage/SettingsPage';
 
 import './App.scss';
 
@@ -9,9 +12,13 @@ console.log(
 
 function App() {
 	return (
-		<>
-			<Layout></Layout>
-		</>
+		<MemoryRouter>
+			<Routes>
+				<Route path={'/'} element={<MainPage />} />
+
+				<Route path={'/settings'} element={<SettingsPage />} />
+			</Routes>
+		</MemoryRouter>
 	);
 }
 
