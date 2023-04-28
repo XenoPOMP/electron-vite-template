@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 import Layout from '@components/Layout/Layout';
 
-import UiContainer from '@ui/UiContainer/UiContainer';
-
 import styles from './MainPage.module.scss';
 import type { MainPageProps } from './MainPage.props';
 
