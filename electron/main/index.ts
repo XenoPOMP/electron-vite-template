@@ -125,3 +125,11 @@ ipcMain.handle('open-win', (_, arg) => {
 		childWindow.loadFile(indexHtml, { hash: arg });
 	}
 });
+
+ipcMain.on('minimize_app', (_, arg) => {
+	win?.minimize();
+});
+
+ipcMain.on('close_app', (_, arg) => {
+	app.quit();
+});
