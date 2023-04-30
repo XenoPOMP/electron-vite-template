@@ -19,6 +19,8 @@
     "paths": {
       "@/*": [ "src/*" ],
       "@components/*": ["src/assets/components/*"],
+      "@localization/*": ["src/assets/localization/*"],
+      "@locales/*": ["src/assets/localization/locales/*"],
       "@contexts/*": ["src/assets/contexts/*"],
       "@pages/*": ["src/assets/pages/*"],
       "@redux/*": ["src/assets/redux/*"],
