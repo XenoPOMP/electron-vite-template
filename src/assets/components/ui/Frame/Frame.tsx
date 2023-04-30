@@ -14,6 +14,8 @@ const Frame: FC<FrameProps> = ({}) => {
 			<div className={cn(styles.trafficLights)}>
 				<ControlButton action={'minimize'} />
 
+				<ControlButton action={'maximize'} />
+
 				<ControlButton action={'close'} />
 			</div>
 		</header>

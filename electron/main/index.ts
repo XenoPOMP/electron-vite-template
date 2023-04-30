@@ -1,4 +1,4 @@
-import { BrowserWindow, app, ipcMain, shell } from 'electron';
+import { BrowserWindow, app, ipcMain, ipcRenderer, shell } from 'electron';
 import { release } from 'node:os';
 import { join } from 'node:path';
 
@@ -70,6 +70,14 @@ async function createWindow() {
 		win.loadFile(indexHtml);
 	}
 
+	win.on('maximize', () => {
+		win?.webContents.send('get_fullscreen_status', true);
+	});
+
+	win.on('unmaximize', () => {
+		win?.webContents.send('get_fullscreen_status', false);
+	});
+
 	// Test actively push message to the Electron-Renderer
 	win.webContents.on('did-finish-load', () => {
 		win?.webContents.send('main-process-message', new Date().toLocaleString());
@@ -129,6 +137,10 @@ ipcMain.handle('open-win', (_, arg) => {
 ipcMain.on('minimize_app', (_, arg) => {
 	win?.minimize();
 });
+
+ipcMain.on('maximize_app', () => win?.maximize());
+
+ipcMain.on('unmaximize_app', () => win?.unmaximize());
 
 ipcMain.on('close_app', (_, arg) => {
 	app.quit();

@@ -1,3 +1,3 @@
 export interface ControlButtonProps {
-	action: 'minimize' | 'close';
+	action: 'minimize' | 'maximize' | 'close';
 }
