@@ -16,15 +16,15 @@ release
 build/**
 
 # Editor directories and files
-.vscode/**
-.vscode/.debug.env
-.idea/**
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+**/.vscode/**
+**/.vscode/.debug.env
+**/.idea/**
+**/.DS_Store
+**/*.suo
+**/*.ntvs*
+**/*.njsproj
+**/*.sln
+**/*.sw?
 
 #lockfile
 package-lock.json
