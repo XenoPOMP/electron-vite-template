@@ -7,7 +7,7 @@ export type AppSettings = {
 };
 
 const initialState: AppSettings = {
-	appVersion: '0.01.1',
+	appVersion: '1.0',
 };
 
 const appSettingsSlice = createSlice({
