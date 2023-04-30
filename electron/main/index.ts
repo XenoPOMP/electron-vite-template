@@ -44,7 +44,7 @@ const indexHtml = join(process.env.DIST, 'index.html');
 
 // App constants
 // Determines whether app frame will be rendered or not
-const useFrame = true;
+const useFrame = false;
 
 async function createWindow() {
 	win = new BrowserWindow({
