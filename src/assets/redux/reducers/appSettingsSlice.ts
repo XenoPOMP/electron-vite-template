@@ -7,17 +7,23 @@ export type Language = 'en' | 'ru';
 export type AppSettings = {
 	appVersion: string;
 	language: Language;
+	cookiePrefix: string;
 };
 
 const initialState: AppSettings = {
-	appVersion: '1.1.0',
+	appVersion: '1.1.1',
 	language: 'en',
+	cookiePrefix: 'application',
 };
 
 const appSettingsSlice = createSlice({
 	name: 'appSettings',
 	initialState,
 	reducers: {
+		loadAppSettings(state, action: ReduxAction<AppSettings>) {
+			state.language = action.payload.language;
+		},
+
 		changeLang(state, action: ReduxAction<any>) {
 			state.language = action.payload;
 		},
@@ -25,5 +31,5 @@ const appSettingsSlice = createSlice({
 });
 
 export default appSettingsSlice.reducer;
-export const { changeLang } = appSettingsSlice.actions;
+export const { changeLang, loadAppSettings } = appSettingsSlice.actions;
 export const initialAppSettings = appSettingsSlice.getInitialState();
