@@ -3,7 +3,7 @@ import { FC, PropsWithChildren, useContext, useEffect } from 'react';
 
 import { BodyClassnameContext } from '@providers/BodyClassnameProvider/BodyClassnameProvider';
 
-import useBodyClassnames from '@hooks/BodyClassnames';
+import useBodyClassnames from '@hooks/useBodyClassnames';
 
 import styles from './SizesProvider.module.scss';
 import type { SizesProviderProps } from './SizesProvider.props';
