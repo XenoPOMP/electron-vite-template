@@ -5,7 +5,7 @@ import { KeyboardEvent, useEffect, useRef } from 'react';
  * Hook for keyboard event handling.
  *
  * @example
- * useKey(Key.Enter, event => {
+ * useKey('Enter', event => {
  * 		setMessage('Enter pressed');
  * });
  *
