@@ -1,9 +1,20 @@
+import { PropsWith } from '@type/PropsWith';
 import { motion } from 'framer-motion';
-import { FC, PropsWithChildren, useRef } from 'react';
+import { FC, useRef } from 'react';
 
 import { DragMenuProps } from './DragMenu.props';
 
-const DragMenu: FC<PropsWithChildren<DragMenuProps>> = ({
+/**
+ * Draggable menu.
+ *
+ * Uses Framer Motion gestures for working. [See documentation](https://www.framer.com/motion/gestures/#drag).
+ *
+ * @param children
+ * @param classNames    constraint and draggable elements class names.
+ * @param axis					drag axis. Can be horizontal (x) or vertical (y).
+ * @constructor
+ */
+const DragMenu: FC<PropsWith<'children', DragMenuProps>> = ({
 	children,
 	classNames,
 	axis,

@@ -3,9 +3,8 @@ import { Localization } from '@localization/Localization';
 const ru: Localization = {
 	meta: {
 		mainPage: {
-			pageTitle: 'Главная',
-			pageDescription: '',
-			keywords: '',
+			title: 'Главная',
+			description: '',
 		},
 	},
 

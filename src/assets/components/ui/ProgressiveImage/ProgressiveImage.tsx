@@ -1,3 +1,4 @@
+import { PropsWith } from '@type/PropsWith';
 import cn from 'classnames';
 import { CSSProperties, FC, ReactElement, useEffect, useState } from 'react';
 
@@ -6,13 +7,21 @@ import Loader from '@ui/Loader/Loader';
 import styles from './ProgressiveImage.module.scss';
 import { ProgressiveImageProps } from './ProgressiveImage.props';
 
-const ProgressiveImage: FC<ProgressiveImageProps> = ({
-	src,
-	alt,
-	className,
-	style,
-	loaderColorScheme,
-}) => {
+/**
+ * Progressive image is a modern way to display images.
+ *
+ * Adds loader when image is being loaded.
+ *
+ * @param src									target image`s source.
+ * @param alt									alternate name of image.
+ * @param className
+ * @param style
+ * @param loaderColorScheme
+ * @constructor
+ */
+const ProgressiveImage: FC<
+	PropsWith<'className' | 'style', ProgressiveImageProps>
+> = ({ src, alt, className, style, loaderColorScheme }) => {
 	const getInlineVariables = (): CSSProperties => {
 		const { backgroundColor } = loaderColorScheme;
 

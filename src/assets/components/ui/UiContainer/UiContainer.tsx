@@ -1,11 +1,21 @@
+import { PropsWith } from '@type/PropsWith';
 import cn from 'classnames';
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 
 import styles from './UiContainer.module.scss';
 import type { UiContainerProps } from './UiContainer.props';
 
-interface IUiContainerNestedProps extends PropsWithChildren<UiContainerProps> {}
+interface IUiContainerNestedProps
+	extends PropsWith<'className' | 'children' | 'id', UiContainerProps> {}
 
+/**
+ * UI container with maximum width.
+ *
+ * @param children
+ * @param className
+ * @param id
+ * @constructor
+ */
 const UiContainer: FC<IUiContainerNestedProps> & {
 	Section: FC<IUiContainerNestedProps>;
 	Article: FC<IUiContainerNestedProps>;

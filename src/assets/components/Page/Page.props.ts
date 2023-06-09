@@ -1,4 +1,4 @@
-import { MetaInfo } from '@components/MetaTitle/MetaInfo';
+import { MetaInfo } from '@type/MetaInfo';
 
 export interface PageProps {
 	meta: MetaInfo;
