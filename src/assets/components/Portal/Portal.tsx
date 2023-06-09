@@ -1,10 +1,23 @@
+import { PropsWith } from '@type/PropsWith';
 import cn from 'classnames';
 import { FC, PropsWithChildren } from 'react';
 
 import styles from './Portal.module.scss';
 import type { PortalProps } from './Portal.props';
 
-const Portal: FC<PropsWithChildren<PortalProps>> = ({ children, enabled }) => {
+/**
+ * Portal component.
+ *
+ * Portal can render or can not render according to **enabled** state.
+ *
+ * @param children
+ * @param enabled					defines whether Portal is "opened".
+ * @constructor
+ */
+const Portal: FC<PropsWith<'children', PortalProps>> = ({
+	children,
+	enabled,
+}) => {
 	return <>{enabled && <>{children}</>}</>;
 };
 

@@ -5,9 +5,20 @@ import { FC, useState } from 'react';
 import styles from './ControlButton.module.scss';
 import type { ControlButtonProps } from './ControlButton.props';
 
+/**
+ * Traffic light`s button.
+ *
+ * @param action    "minimize" | "maximize" | "close".
+ * @constructor
+ */
 const ControlButton: FC<ControlButtonProps> = ({ action }) => {
 	const [isFullscreen, setIsFullscreen] = useState(false);
 
+	/**
+	 * Button`s content.
+	 *
+	 * @constructor
+	 */
 	const Content: FC<unknown> = () => {
 		switch (action) {
 			case 'minimize':
@@ -19,6 +30,7 @@ const ControlButton: FC<ControlButtonProps> = ({ action }) => {
 		}
 	};
 
+	/** List of IPC actions. */
 	const ipcActions: {
 		[key in typeof action]: string;
 	} = {
@@ -27,6 +39,7 @@ const ControlButton: FC<ControlButtonProps> = ({ action }) => {
 		close: 'close_app',
 	};
 
+	// Get message from ipcMain for fullscreen state change
 	ipcRenderer.on('get_fullscreen_status', (_, arg) => {
 		setIsFullscreen(arg);
 	});

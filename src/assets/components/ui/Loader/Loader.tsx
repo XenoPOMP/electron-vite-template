@@ -1,3 +1,4 @@
+import { PropsWith } from '@type/PropsWith';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { CSSProperties, FC } from 'react';
@@ -7,7 +8,19 @@ import numericGenerator from '@utils/numericGenerator';
 import styles from './Loader.module.scss';
 import type { LoaderProps } from './Loader.props';
 
-const Loader: FC<LoaderProps> = ({ type, className, mainColor }) => {
+/**
+ * Loader component.
+ *
+ * @param type					"circle" | "three-dots" | "wave".
+ * @param className
+ * @param mainColor			color of loader.
+ * @constructor
+ */
+const Loader: FC<PropsWith<'className', LoaderProps>> = ({
+	type,
+	className,
+	mainColor,
+}) => {
 	return (
 		<>
 			{type === 'circle' && (

@@ -1,11 +1,20 @@
-import { FC, PropsWithChildren, useEffect } from 'react';
+import { PropsWith } from '@type/PropsWith';
+import { FC, useEffect } from 'react';
 import Media from 'react-media';
 
 import ArgumentError from '@errors/ArgumentError';
 
 import { MediaWidthViewProps } from './MediaWidthView.props';
 
-const MediaWidthView: FC<PropsWithChildren<MediaWidthViewProps>> = ({
+/**
+ * Media query component.
+ *
+ * @param children
+ * @param maxWidth				maximum width of viewport.
+ * @param minWidth				minimum width of viewport.
+ * @constructor
+ */
+const MediaWidthView: FC<PropsWith<'children', MediaWidthViewProps>> = ({
 	children,
 	maxWidth,
 	minWidth,

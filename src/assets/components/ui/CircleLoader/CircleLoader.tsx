@@ -1,10 +1,21 @@
+import { PropsWith } from '@type/PropsWith';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { FC } from 'react';
 
+import Loader from '@ui/Loader/Loader';
+
 import { CircleLoaderProps } from './CircleLoader.props';
 
-const CircleLoader: FC<CircleLoaderProps> = ({ className }) => {
+/**
+ * @deprecated use {@link Loader} instead.
+ *
+ * @param className
+ * @constructor
+ */
+const CircleLoader: FC<PropsWith<'className', CircleLoaderProps>> = ({
+	className,
+}) => {
 	return (
 		<motion.svg
 			className={cn(className)}

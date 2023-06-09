@@ -1,11 +1,33 @@
+import { PropsWith } from '@type/PropsWith';
 import cn from 'classnames';
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 
 import styles from './RunningLine.module.scss';
 import { RunningLineProps } from './RunningLine.props';
 
-const RunningLine: FC<PropsWithChildren<RunningLineProps>> = props => {
-	const defaultProps: PropsWithChildren<RunningLineProps> = {
+/**
+ * Running line component.
+ *
+ * It utilizes html marquee tag.
+ *
+ * <hr/>
+ *
+ * **Options**
+ *
+ * 1. behavior: 'scroll' (DEFAULT) | 'slide' | 'alternate'.
+ * 2. direction: 'left' (DEFAULT) | 'right' | 'up' | 'down'
+ * 3. loop: boolean
+ * 4. scrollSpeed: number
+ * 5. scrollDelay: number
+ * 6. verticalAlign: boolean
+ *
+ * @param props
+ * @constructor
+ */
+const RunningLine: FC<
+	PropsWith<'className' | 'style' | 'children', RunningLineProps>
+> = props => {
+	const defaultProps: typeof props = {
 		behavior: 'scroll',
 		direction: 'left',
 		loop: false,

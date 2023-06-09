@@ -1,3 +1,4 @@
+import { PropsWith } from '@type/PropsWith';
 import cn from 'classnames';
 import { CSSProperties, FC, PropsWithChildren } from 'react';
 
@@ -9,7 +10,17 @@ interface OverlayStyles extends CSSProperties {
 	'--blur-color'?: string;
 }
 
-const Overlay: FC<PropsWithChildren<OverlayProps>> = ({
+/**
+ * Overlay component.
+ *
+ * @param className
+ * @param backdrop				backdrop options.
+ * @param trigger					if true, overlay is shown.
+ * @param flexCenter			align items to center.
+ * @param children
+ * @constructor
+ */
+const Overlay: FC<PropsWith<'children' | 'className', OverlayProps>> = ({
 	className,
 	backdrop,
 	trigger,

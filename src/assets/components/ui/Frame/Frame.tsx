@@ -6,6 +6,11 @@ import ControlButton from '@ui/Frame/ControlButton/ControlButton';
 import styles from './Frame.module.scss';
 import type { FrameProps } from './Frame.props';
 
+/**
+ * Application frame with traffic lights.
+ *
+ * @constructor
+ */
 const Frame: FC<FrameProps> = ({}) => {
 	return (
 		<header className={cn(styles.appFrame)}>
