@@ -12,7 +12,7 @@ export type AppSettings = {
 };
 
 const initialState: AppSettings = {
-	appVersion: '1.2.0',
+	appVersion: '1.2.1',
 	appName: 'Electron Vite Application',
 	language: 'en',
 	cookiePrefix: 'application',
