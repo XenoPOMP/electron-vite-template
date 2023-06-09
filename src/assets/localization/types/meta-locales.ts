@@ -1,4 +1,4 @@
-import type { MetaInfo } from '@components/MetaTitle/MetaInfo';
+import type { MetaInfo } from '@type/MetaInfo';
 
 export type MetaLocales = {
 	meta: {
