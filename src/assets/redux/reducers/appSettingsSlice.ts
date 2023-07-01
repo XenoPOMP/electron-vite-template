@@ -26,7 +26,7 @@ const appSettingsSlice = createSlice({
 			state.language = action.payload.language;
 		},
 
-		changeLang(state, action: ReduxAction<any>) {
+		changeLang(state, action: ReduxAction<Language>) {
 			state.language = action.payload;
 		},
 	},

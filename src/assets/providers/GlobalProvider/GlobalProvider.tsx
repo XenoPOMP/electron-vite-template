@@ -1,6 +1,5 @@
 import { FC } from 'react';
 
-import AppSettingsSaver from '@providers/AppSettingsSaver/AppSettingsSaver';
 import BodyClassnameProvider from '@providers/BodyClassnameProvider/BodyClassnameProvider';
 import { ProviderProps } from '@providers/Provider.props';
 import SizesProvider from '@providers/SizesProvider/SizesProvider';
@@ -10,11 +9,9 @@ const GlobalProvider: FC<ProviderProps> = ({ children }) => {
 	return (
 		<>
 			<BodyClassnameProvider>
-				<AppSettingsSaver>
-					<SizesProvider>
-						<ThemeProvider>{children}</ThemeProvider>
-					</SizesProvider>
-				</AppSettingsSaver>
+				<SizesProvider>
+					<ThemeProvider>{children}</ThemeProvider>
+				</SizesProvider>
 			</BodyClassnameProvider>
 		</>
 	);
