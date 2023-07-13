@@ -1,37 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { ReduxAction } from '@redux/types/redux-types';
-
-export type Language = 'en' | 'ru';
+import { ReduxAction } from '@redux/types';
 
 export type AppSettings = {
 	appVersion: string;
 	appName: string;
-	language: Language;
-	cookiePrefix: string;
+	language: 'en';
 };
 
 const initialState: AppSettings = {
-	appVersion: '1.2.2',
-	appName: 'Electron Vite Application',
+	appVersion: '1.3.0',
+	appName: 'React Vite Application',
 	language: 'en',
-	cookiePrefix: 'application',
 };
 
 const appSettingsSlice = createSlice({
 	name: 'appSettings',
 	initialState,
 	reducers: {
-		loadAppSettings(state, action: ReduxAction<AppSettings>) {
-			state.language = action.payload.language;
-		},
+		simpleAction(state, action: ReduxAction<number>) {},
 
-		changeLang(state, action: ReduxAction<Language>) {
+		/** Change application`s language. */
+		changeLang(state, action: ReduxAction<AppSettings['language']>) {
 			state.language = action.payload;
 		},
 	},
 });
 
 export default appSettingsSlice.reducer;
-export const { changeLang, loadAppSettings } = appSettingsSlice.actions;
+export const { simpleAction, changeLang } = appSettingsSlice.actions;
 export const initialAppSettings = appSettingsSlice.getInitialState();

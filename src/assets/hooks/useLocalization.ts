@@ -11,8 +11,6 @@ const useLocalization = (): Localization => {
 	switch (language.get()) {
 		case 'en':
 			return en;
-		case 'ru':
-			return ru;
 	}
 };
 

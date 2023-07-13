@@ -1,42 +1,43 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { DeepPartial } from 'redux';
 
-import {
-	AppSettings,
-	Language,
-	changeLang,
-} from '@redux/reducers/appSettingsSlice';
-import IStore from '@redux/types/redux-types';
+import { useAppDispatch, useAppSelector } from '@redux/hooks';
+import { AppSettings, changeLang } from '@redux/reducers/appSettingsSlice';
 
-interface SettingController<T> {
+type SettingController<T> = {
 	get: () => T;
 	set: (newValue: T) => void;
-}
+} & (T extends boolean
+	? {
+			toggle: () => void;
+	  }
+	: {});
 
-type AppSettingsAnnotation = {
-	[set in keyof Pick<AppSettings, 'appVersion' | 'language' | 'appName'>]: any;
-};
-
-interface IUseAppSettings extends AppSettingsAnnotation {
-	appVersion: Omit<SettingController<string>, 'set'>;
-	language: SettingController<Language>;
-	appName: Omit<SettingController<string>, 'set'>;
+interface IUseAppSettings
+	extends Record<keyof AppSettings, DeepPartial<SettingController<any>>> {
+	appVersion: Omit<SettingController<AppSettings['appVersion']>, 'set'>;
+	appName: Omit<SettingController<AppSettings['appName']>, 'set'>;
+	language: SettingController<AppSettings['language']>;
 }
 
 const useAppSettings = (): IUseAppSettings => {
-	const dispatch = useDispatch();
+	const { appVersion, appName, language }: AppSettings = useAppSelector(
+		state => state.appSettings
+	);
+
+	const dispatch = useAppDispatch();
 
 	return {
 		appVersion: {
-			get: () => useSelector((state: IStore) => state.appSettings.appVersion),
-		},
-
-		language: {
-			get: () => useSelector((state: IStore) => state.appSettings.language),
-			set: newValue => dispatch(changeLang(newValue)),
+			get: () => appVersion,
 		},
 
 		appName: {
-			get: () => useSelector((state: IStore) => state.appSettings.appName),
+			get: () => appName,
+		},
+
+		language: {
+			get: () => language,
+			set: newValue => dispatch(changeLang(newValue)),
 		},
 	};
 };

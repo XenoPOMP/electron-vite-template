@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider as ReduxProvider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import { store } from '@redux/index';
+import store, { persistor } from '@redux/index';
 
 import GlobalProvider from '@providers/GlobalProvider/GlobalProvider';
 
@@ -23,7 +24,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 		<QueryClientProvider client={queryClient}>
 			<ReduxProvider store={store}>
 				<GlobalProvider>
-					<App />
+					<PersistGate persistor={persistor} loading={null}>
+						<App />
+					</PersistGate>
 				</GlobalProvider>
 			</ReduxProvider>
 		</QueryClientProvider>
