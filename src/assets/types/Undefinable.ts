@@ -1,5 +1,5 @@
 /**
- * Opposite to required type.
+ * Makes union type of T and undefined.
  *
  * Makes type T not required.
  */
