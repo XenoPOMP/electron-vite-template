@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import { ipcRenderer } from 'electron';
-import { FC, useState } from 'react';
+import { FC, useContext, useState } from 'react';
+
+import { FullscreenStateContext } from '@contexts/FullscreenState.context';
 
 import styles from './ControlButton.module.scss';
 import type { ControlButtonProps } from './ControlButton.props';
@@ -12,7 +14,7 @@ import type { ControlButtonProps } from './ControlButton.props';
  * @constructor
  */
 const ControlButton: FC<ControlButtonProps> = ({ action }) => {
-	const [isFullscreen, setIsFullscreen] = useState(false);
+	const isFullscreen = useContext(FullscreenStateContext);
 
 	/**
 	 * Button`s content.
@@ -38,11 +40,6 @@ const ControlButton: FC<ControlButtonProps> = ({ action }) => {
 		maximize: isFullscreen ? 'unmaximize_app' : 'maximize_app',
 		close: 'close_app',
 	};
-
-	// Get message from ipcMain for fullscreen state change
-	ipcRenderer.on('get_fullscreen_status', (_, arg) => {
-		setIsFullscreen(arg);
-	});
 
 	return (
 		<div

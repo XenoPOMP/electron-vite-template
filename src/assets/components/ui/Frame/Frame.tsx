@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import { FC } from 'react';
 
+import FullscreenStateProvider from '@contexts/FullscreenState.context';
+
 import ControlButton from '@ui/Frame/ControlButton/ControlButton';
 
 import useAppSettings from '@hooks/useAppSettings';
@@ -18,15 +20,17 @@ const Frame: FC<FrameProps> = ({}) => {
 
 	return (
 		<header className={cn(styles.appFrame)}>
-			<div>{appName.get()}</div>
+			<section>{appName.get()}</section>
 
-			<div className={cn(styles.trafficLights)}>
-				<ControlButton action={'minimize'} />
+			<FullscreenStateProvider>
+				<section className={cn(styles.trafficLights)}>
+					<ControlButton action={'minimize'} />
 
-				<ControlButton action={'maximize'} />
+					<ControlButton action={'maximize'} />
 
-				<ControlButton action={'close'} />
-			</div>
+					<ControlButton action={'close'} />
+				</section>
+			</FullscreenStateProvider>
 		</header>
 	);
 };
