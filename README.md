@@ -5,6 +5,10 @@
 
 This repo is based on [electron-vite-react](https://github.com/electron-vite/electron-vite-react).
 
+<p align='center'>
+<img src='https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/XenoPOMP/9ec79d308d96a8a6c90aab99479c4540/raw/electron-loc.json' alt='Count of lines' />
+</p>
+
 ## 👀 Overview
 📦 Ready out of the box  
 🎯 Based on the official [template-react-ts](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts), project structure will be familiar to you  
