@@ -2,12 +2,9 @@
 
 <a href="https://github.com/XenoPOMP/electron-vite-template/releases/"><img src="https://img.shields.io/github/release/XenoPOMP/electron-vite-template?include_prereleases=&sort=semver&color=blue" alt="GitHub release"></a>
 <a href="#license"><img src="https://img.shields.io/badge/License-MIT-8CBA04" alt="License"></a>
+<img src='https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/XenoPOMP/9ec79d308d96a8a6c90aab99479c4540/raw/electron-loc.json' alt='Count of lines' />
 
 This repo is based on [electron-vite-react](https://github.com/electron-vite/electron-vite-react).
-
-<p align='center'>
-<img src='https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/XenoPOMP/9ec79d308d96a8a6c90aab99479c4540/raw/electron-loc.json' alt='Count of lines' />
-</p>
 
 ## 👀 Overview
 📦 Ready out of the box  
