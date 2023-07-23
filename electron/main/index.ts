@@ -47,14 +47,17 @@ const url = process.env.VITE_DEV_SERVER_URL;
 const indexHtml = join(process.env.DIST, 'index.html');
 
 // App constants
-// Determines whether app frame will be rendered or not
-const useFrame = false;
+/** Determines whether app frame will be rendered or not. */
+const USE_FRAME = false;
+/** Determines whether app will be transparent or not. */
+const IS_TRANSPARENT = false;
 
 async function createWindow() {
 	win = new BrowserWindow({
 		title: 'Main window',
 		icon: join(process.env.PUBLIC, 'favicon.ico'),
-		frame: useFrame,
+		frame: USE_FRAME,
+		transparent: IS_TRANSPARENT,
 		webPreferences: {
 			preload,
 			// Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
