@@ -3,4 +3,4 @@
  *
  * Makes type T not required.
  */
-export type NotRequired<T> = T | undefined;
+export type Undefinable<T> = T | undefined;
