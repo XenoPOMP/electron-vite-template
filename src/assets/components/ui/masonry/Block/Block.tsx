@@ -1,7 +1,7 @@
+import { PropsWith } from '@xenopomp/advanced-types';
+
 import cn from 'classnames';
 import { FC } from 'react';
-
-import { PropsWith } from '@type/PropsWith';
 
 import styles from './Block.module.scss';
 import type { BlockProps } from './Block.props';
@@ -16,13 +16,13 @@ import type { BlockProps } from './Block.props';
  * @constructor
  */
 const Block: FC<
-  PropsWith<'className' | 'style' | 'id' | 'children', BlockProps>
+	PropsWith<'className' | 'style' | 'id' | 'children', BlockProps>
 > = ({ className, style, id, children }) => {
-  return (
-    <div className={cn(styles.block, className)} id={id} style={style}>
-      {children}
-    </div>
-  );
+	return (
+		<div className={cn(styles.block, className)} id={id} style={style}>
+			{children}
+		</div>
+	);
 };
 
 export default Block;

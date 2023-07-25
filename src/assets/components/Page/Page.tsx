@@ -1,4 +1,5 @@
-import { PropsWith } from '@type/PropsWith';
+import { PropsWith } from '@xenopomp/advanced-types';
+
 import { FC } from 'react';
 import Helmet from 'react-helmet';
 

@@ -1,4 +1,5 @@
-import { PropsWith } from '@type/PropsWith';
+import { PropsWith } from '@xenopomp/advanced-types';
+
 import { ipcRenderer } from 'electron';
 import { FC, createContext, useEffect, useRef } from 'react';
 

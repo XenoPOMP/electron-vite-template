@@ -11,9 +11,8 @@ const SettingsPage: FC<SettingsPageProps> = ({}) => {
 	return (
 		<Page
 			meta={{
-				pageTitle: 'Settings',
-				pageDescription: '',
-				keywords: '',
+				title: 'Settings',
+				description: '',
 			}}
 		></Page>
 	);

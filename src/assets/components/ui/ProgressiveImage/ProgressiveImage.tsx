@@ -1,4 +1,5 @@
-import { PropsWith } from '@type/PropsWith';
+import { PropsWith } from '@xenopomp/advanced-types';
+
 import cn from 'classnames';
 import { CSSProperties, FC, ReactElement, useEffect, useState } from 'react';
 

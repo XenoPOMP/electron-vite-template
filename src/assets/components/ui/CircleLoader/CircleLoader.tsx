@@ -1,4 +1,5 @@
-import { PropsWith } from '@type/PropsWith';
+import { PropsWith } from '@xenopomp/advanced-types';
+
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { FC } from 'react';
