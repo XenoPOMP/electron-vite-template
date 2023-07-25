@@ -37,6 +37,7 @@
     "redux-deep-persist": "^1.0.7",
     "redux-persist": "^6.0.0",
     "socket.io-client": "^4.6.1",
+    "tailwindcss-typescript": "^1.1.2",
     "that-sparks": "^0.1.8",
     "ts-custom-error": "^3.3.1",
     "universal-cookie": "^4.0.4",
