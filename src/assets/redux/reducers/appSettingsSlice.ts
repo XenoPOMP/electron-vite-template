@@ -5,7 +5,7 @@ import { ReduxAction } from '@redux/types';
 export type AppSettings = {
 	appVersion: string;
 	appName: string;
-	language: 'en';
+	language: 'en' | 'ru';
 };
 
 const initialState: AppSettings = {

@@ -1,34 +1,36 @@
 import {
-  combineReducers,
-  configureStore,
-  getDefaultMiddleware,
+	combineReducers,
+	configureStore,
+	getDefaultMiddleware,
 } from '@reduxjs/toolkit';
+import { getPersistConfig } from 'redux-deep-persist';
 import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
+	FLUSH,
+	PAUSE,
+	PERSIST,
+	PURGE,
+	REGISTER,
+	REHYDRATE,
+	persistReducer,
+	persistStore,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { getPersistConfig } from 'redux-deep-persist';
 
-import appSettingsSlice from '@redux/reducers/appSettingsSlice';
+import appSettingsSlice, {
+	initialAppSettings,
+} from '@redux/reducers/appSettingsSlice';
 
 /** App`s root reducer. */
 const rootReducer = combineReducers({
-  appSettings: appSettingsSlice,
+	appSettings: appSettingsSlice,
 });
 
 /** Redux-persist config. */
 const persistConfig = getPersistConfig({
-  key: 'root',
-  storage,
-  blacklist: ['appSettings.appVersion', 'appSettings.appName'],
-  rootReducer,
+	key: `root-${initialAppSettings.appName}`,
+	storage,
+	blacklist: ['appSettings.appVersion', 'appSettings.appName'],
+	rootReducer,
 });
 
 /** Persisted reducer. All data changes will be saved in local storage. */
@@ -36,13 +38,13 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 /** Redux store. */
 const store = configureStore({
-  reducer: persistedReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+	reducer: persistedReducer,
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware({
+			serializableCheck: {
+				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+			},
+		}),
 });
 
 export const persistor = persistStore(store);
